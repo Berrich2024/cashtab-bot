@@ -10,15 +10,15 @@ const puppeteer = require('puppeteer');
     // Click on "New Wallet"
     await page.click('button:contains("New Wallet")');
 
-    // Wait for navigation
+    // Wait for navigation to complete
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
 
     // Click on "Claim Free XEC"
     await page.click('button:contains("Claim Free XEC")');
 
-    // Wait for the new screen to load
-    await page.waitForSelector('selector-for-telegram-icon'); // Replace with actual selector
-    await page.click('selector-for-telegram-icon'); // Replace with actual selector
+    // Wait for the new screen to load and locate the Telegram-like button (identified by class name "tx-sent")
+    await page.waitForSelector('.tx-sent'); // Wait for the element to appear
+    await page.click('.tx-sent');           // Click on the Telegram-like button
 
     // Fill in the Address
     await page.type('input[name="address"]', 'ecash:qqsf9cnwcpjz67jq2hd5gcegfe79yz4w6s64kntvje');
