@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+module.exports = async (req, res) => {
+  try {
     const browser = await puppeteer.launch({ headless: false, args: ['--incognito'] });
     const page = await browser.newPage();
 
@@ -31,4 +32,10 @@ const puppeteer = require('puppeteer');
 
     // Close the browser
     await browser.close();
-})();
+
+    res.status(200).send('Transaction Sent!');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error executing transaction');
+  }
+};
