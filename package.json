@@ -1,0 +1,16 @@
+{
+  "name": "cashtab-bot",
+  "version": "1.0.0",
+  "description": "A bot to interact with Cashtab and automate wallet creation.",
+  "main": "api/bot.js",
+  "scripts": {
+    "start": "node api/bot.js"
+  },
+  "dependencies": {
+    "puppeteer": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "license": "MIT"
+}
